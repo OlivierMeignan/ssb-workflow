@@ -1,0 +1,19 @@
+# création du STREAM RAW qui mappe le topic alimenté par Qlik et récupère la définition associée dans la registry
+
+succ:
+   - workflow: "standardlayer"
+
+
+
+jobs: 
+
+   - jobname: "createIotEnrichedAvro"
+     confluent2cloudera: iot_enriched_avro
+
+
+  # - jobname: "Read Kafla"
+  #   sql:  create view v1 as select * 
+  #        from sensors
+            
+  # - jobname: "transform"
+  #   sql: select * from v2 

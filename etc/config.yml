@@ -1,0 +1,10 @@
+
+user: "aaaaa"
+password: "ppppppp"
+
+ssb:
+  endpoint: "http://cdp.54.216.166.174.nip.io:18121/"
+
+
+schemaregistry:
+  endpoint: "http://cdp.54.216.166.174.nip.io:7788/"

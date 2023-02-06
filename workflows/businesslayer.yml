@@ -1,0 +1,8 @@
+# Name :  "Business data"
+
+
+
+jobs: 
+
+   - jobname: "ReadView"
+     sql: SELECT * from v2

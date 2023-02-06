@@ -1,0 +1,27 @@
+# Name :  "Normalized data"
+succ:
+   - workflow: "businesslayer"
+   - workflow: "businesslayer"
+   - workflow: "businesslayer"
+   - workflow: "businesslayer"
+
+
+jobs: 
+
+   #- jobname: "Standardlayer_Tranformation_1"
+   #  sql:  drop view v1
+
+   - jobname: "Tranformation1"
+     sql:  CREATE  VIEW  v1 AS
+           SELECT sensor_id, sensor_ts, sensor_0, sensor_1
+           FROM `sr`.`default_database`.`iot_enriched_avro`
+
+   #- jobname: "standardlayer_Transformation_2"
+   #  sql: drop view v2
+   
+   - jobname: "Transformation2"
+     sql: CREATE VIEW v2 AS
+          SELECT sensor_id, sensor_ts, sensor_0, sensor_1
+          FROM v1
+           
+            

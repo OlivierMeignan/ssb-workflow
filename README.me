@@ -1,0 +1,36 @@
+= An application which uses Cloudera SSB Api to create connected SQL streaming  workflows
+
+A workflow is defined as a Yaml file which contains a sequence of jobs
+
+A workflow can have ( or not) a successor which is a new workflow
+
+A simple workflow example :
+
+[source, Yaml]
+----
+# Name :  "Normalized data" 
+
+succ:
+   - workflow: "standardlayer"          # The successor of the workflow file is a new workflow file by name's "standardlayer.yml"
+
+jobs:                                   # The sequence of SQL job
+
+   - jobname: "Tranformation_1"
+     sql:  CREATE  VIEW  v1 AS
+           SELECT sensor_id, sensor_ts, sensor_0, sensor_1
+           FROM `sr`.`default_database`.`iot_enriched_avro`
+
+   - jobname: "Transformation_2"
+     sql: drop view v1
+
+----
+
+
+Usage
+
+[source, shell]
+
+ssb-workflow.py {--run, --status, --draw}
+
+
+
